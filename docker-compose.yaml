@@ -1,0 +1,14 @@
+version: '3.3'
+services:
+  ginachat:
+    image: ginachat:latest
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    network_mode: host
+    volumes:
+      - "./src:/app"
